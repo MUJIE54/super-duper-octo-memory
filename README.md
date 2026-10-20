@@ -1,102 +1,35 @@
-# springboot-web-01
+# 学习项目集合
 
-Spring Boot Web 入门练习项目：从 `user.txt` 读取用户数据，通过 REST 接口返回 JSON，并配合前端页面展示用户列表。
+个人练习项目仓库，按子目录存放不同阶段的代码练习。
 
-## 技术栈
+## 项目列表
 
-- **后端**：Spring Boot 4.1.1（spring-boot-starter-webmvc）
-- **JDK**：17+
-- **构建**：Maven
-- **工具库**：
-  - [Lombok](https://projectlombok.org/) — 实体类注解
-  - [Hutool](https://hutool.cn/) 5.8.27 — 文件读取
-- **前端**：原生 HTML + Vue 3（ESM 浏览器版）+ Axios
+| 目录 | 简介 | 技术栈 |
+|---|---|---|
+| [springboot-web-01](./springboot-web-01) | Spring Boot Web 入门：从 `user.txt` 读取用户数据，提供 `GET /list` 接口返回 JSON，配合 Vue + Axios 前端页面展示 | Spring Boot 4.1.1 / JDK 17 / Maven / Lombok / Hutool |
+| [oop](./oop) | Java 面向对象练习：控制台文字格斗游戏（登录注册 + 属性点分配 + 回合制战斗 + 升级成长），附继承关系练习 | Java SE（纯控制台，无第三方依赖）|
 
-## 项目结构
+## 目录结构
 
 ```
-springboot-web-01
-├── pom.xml
-└── src/main
-    ├── java/com/itheima
-    │   ├── SpringbootWeb01Application.java   # 启动类
-    │   ├── controller/UserController.java    # 用户接口
-    │   └── pojo/User.java                    # 用户实体类
-    └── resources
-        ├── application.properties             # 应用配置（JSON 日期格式/时区）
-        ├── user.txt                           # 用户数据源（逗号分隔）
-        └── static
-            ├── user.html                      # 前端列表页
-            └── js/
-                ├── vue.esm-browser.js
-                └── axios.min.js
+.
+├── README.md                  ← 本文件（项目导航）
+├── .gitignore
+├── springboot-web-01/         ← Spring Boot Web 练习
+│   ├── README.md
+│   ├── pom.xml
+│   └── src/
+└── oop/                       ← Java OOP 练习
+    ├── README.md
+    └── src/
 ```
 
-## 环境要求
+## 本地环境
 
-- JDK 17 或以上（本机 JDK 26 已验证可运行）
+- JDK 17+（本机 JDK 26 已验证）
 - Maven 3.6+
-- IDEA / VS Code 任意
+- Git 2.x
 
-## 启动方式
-
-### 方式一：IDEA 直接运行
-
-打开 `SpringbootWeb01Application.java`，点击 main 方法旁边的绿色三角运行。
-
-### 方式二：命令行
-
-```bash
-mvn spring-boot:run
-```
-
-启动后默认端口为 `8080`。
-
-## 接口说明
-
-### `GET /list`
-
-读取 classpath 下的 `user.txt`，解析后返回用户列表（自动序列化为 JSON）。
-
-**响应示例**：
-
-```json
-[
-  {
-    "id": 1,
-    "username": "zhangsan",
-    "password": "123456",
-    "name": "张三",
-    "age": 20,
-    "updateTime": "2026-10-20 12:00:00"
-  }
-]
-```
-
-**`user.txt` 数据格式**（每行一条，逗号分隔）：
-
-```
-id,username,password,name,age,updateTime
-```
-
-日期格式：`yyyy-MM-dd HH:mm:ss`，时区 `GMT+8`。
-
-## 前端页面
-
-启动后浏览器访问：
-
-```
-http://localhost:8080/user.html
-```
-
-页面会通过 Axios 请求 `/list` 接口，把用户数据渲染成表格展示。
-
-## 相关配置
-
-- 应用名：`springboot-web-01`
-- JSON 日期格式：`yyyy-MM-dd HH:mm:ss`
-- 时区：`GMT+8`
-
-## Git 仓库
+## 仓库地址
 
 https://github.com/MUJIE54/super-duper-octo-memory
